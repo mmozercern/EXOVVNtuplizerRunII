@@ -27,11 +27,11 @@ options.maxEvents = 100
 # options.inputFiles = '/store/data/Run2015D/SingleMuon/MINIAOD/05Oct2015-v1/10000/021FD3F0-876F-E511-99D2-0025905A6060.root'
 #options.inputFiles = 'dcap://t3se01.psi.ch:22125//pnfs/psi.ch/cms/trivcat/store/data/Run2015D/JetHT/MINIAOD/16Dec2015-v1/00000/301A497D-70B0-E511-9630-002590D0AFA8.root'
 #options.inputFiles = '/store/data/Run2016F/JetHT/MINIAOD/23Sep2016-v1/100000/00AB3FCF-1D86-E611-930B-002590D60036.root'
-options.inputFiles = '/store/data/Run2016C/SingleMuon/MINIAOD/03Feb2017-v1/50000/001CF316-1AEB-E611-BBBD-0CC47A4C8EE2.root'
+options.inputFiles = '/store/data/Run2017B/SingleMuon/MINIAOD/23Jun2017-v1/120000/FE3C6528-E059-E711-9E43-0242AC110003.root'
 options.parseArguments()
 
 process.options  = cms.untracked.PSet( 
-                     wantSummary = cms.untracked.bool(False),
+                     wantSummary = cms.untracked.bool(True),
                      SkipEvent = cms.untracked.vstring('ProductNotFound'),
                      allowUnscheduled = cms.untracked.bool(True)
                      )
@@ -78,7 +78,7 @@ from Configuration.AlCa.GlobalTag import GlobalTag
 
 GT = ''
 if config["RUNONMC"]: GT = '80X_mcRun2_asymptotic_2016_miniAODv2'
-elif not(config["RUNONMC"]): GT = '80X_dataRun2_Prompt_ICHEP16JEC_v0'
+elif not(config["RUNONMC"]): GT = '92X_dataRun2_HLT_v4'
 
 print "*************************************** GLOBAL TAG *************************************************" 
 print GT
@@ -91,8 +91,8 @@ if not(config["RUNONMC"]) and config["USEJSON"]:
   import FWCore.PythonUtilities.LumiList as LumiList
   import FWCore.ParameterSet.Types as CfgTypes
   process.source.lumisToProcess = CfgTypes.untracked(CfgTypes.VLuminosityBlockRange())
-  myLumis = LumiList.LumiList(filename = config["JSONFILE"]).getCMSSWString().split(',')
-  process.source.lumisToProcess.extend(myLumis) 
+#  myLumis = LumiList.LumiList(filename = config["JSONFILE"]).getCMSSWString().split(',')
+#  process.source.lumisToProcess.extend(myLumis) 
 
   if config["FILTEREVENTS"]:
   
@@ -637,9 +637,9 @@ jetsAK10trimmed = ""
 jetsAK8Puppi = ""  
 
 METS = "slimmedMETs"
-METS_EGclean = "slimmedMETsEGClean"
-METS_MEGclean = "slimmedMETsMuEGClean"
-METS_uncorr = "slimmedMETsUncorrected"
+METS_EGclean = "slimmedMETs" #"slimmedMETsEGClean"
+METS_MEGclean = "slimmedMETs" #"slimmedMETsMuEGClean"
+METS_uncorr = "slimmedMETs" #"slimmedMETsUncorrected"
 
 if config["DOMETRECLUSTERING"]: jetsAK4 = "selectedPatJets"
 if config["USENOHF"]: METS = "slimmedMETsNoHF"  
@@ -864,7 +864,7 @@ process.ntuplizer = cms.EDAnalyzer("Ntuplizer",
     genEventInfo = cms.InputTag("generator"),
     externallheProducer = cms.InputTag("externalLHEProducer"),
     HLT = cms.InputTag("TriggerResults","","HLT"),
-    triggerobjects = cms.InputTag("selectedPatTrigger"),
+    triggerobjects = cms.InputTag("slimmedPatTrigger"),
     triggerprescales = cms.InputTag("patTrigger"),
     noiseFilter = cms.InputTag('TriggerResults','', hltFiltersProcessName),
     jecAK8chsPayloadNames = cms.vstring( jecLevelsAK8chs ),

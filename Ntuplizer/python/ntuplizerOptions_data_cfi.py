@@ -1,3 +1,4 @@
+
 import FWCore.ParameterSet.Config as cms
 
 config = dict()
@@ -16,7 +17,7 @@ config["DOGENPARTICLES"] = False
 config["DOGENJETS"] = False
 config["DOGENEVENT"] = False
 config["DOPILEUP"] = False
-config["DOELECTRONS"] = True
+config["DOELECTRONS"] = False
 config["DOMUONS"] = True
 config["DOTAUS"] = True
 config["DOAK8JETS"] = True
@@ -27,7 +28,7 @@ config["DOTRIGGEROBJECTS"] = True
 config["DOHLTFILTERS"] = True
 config["DOMISSINGET"] = True
 config["DOTAUSBOOSTED"] = True
-config["DOMETSVFIT"] = True
+config["DOMETSVFIT"] = False
 config["DOMVAMET"] = False
 
 #--------- AK8 jets reclustering ----------#
@@ -36,9 +37,9 @@ config["DOAK8RECLUSTERING"] =False
 config["DOAK8PRUNEDRECLUSTERING"] = False #! To add pruned jet and pruned subjet collection (not in MINIAOD)
 config["DOAK8PUPPI"] = True
 config["DOAK10TRIMMEDRECLUSTERING"] = False #ATLAS sequence
-config["DOHBBTAG"] = True #Higgs-tagger
+config["DOHBBTAG"] = False #Higgs-tagger
 config["DOAK8PUPPIRECLUSTERING"] = False
-config["UpdateJetCollection"] = True #needed for Higgs-tagger in 80X
+config["UpdateJetCollection"] = False #needed for Higgs-tagger in 80X
 
 #--------- MET reclustering ----------#
 config["DOMETRECLUSTERING"] = False

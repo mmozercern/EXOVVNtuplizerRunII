@@ -272,6 +272,7 @@ void TriggersNtuplizer::fillBranches( edm::Event const & event, const edm::Event
   event.getByToken(HLTtriggersToken_, HLTtriggers_);
   event.getByToken(triggerObjects_  , triggerObjects);
   event.getByToken(triggerPrescales_, triggerPrescales);
+  
 
   const edm::TriggerNames& trigNames = event.triggerNames(*HLTtriggers_);
 
@@ -295,6 +296,7 @@ void TriggersNtuplizer::fillBranches( edm::Event const & event, const edm::Event
   	for (pat::TriggerObjectStandAlone obj : *triggerObjects) {
 
   		obj.unpackPathNames(trigNames);
+		obj.unpackFilterLabels(event, *HLTtriggers_);
 
   		std::vector<std::string> pathNamesAll  = obj.pathNames(false);
   		std::vector<std::string> pathNamesLast = obj.pathNames(true);
