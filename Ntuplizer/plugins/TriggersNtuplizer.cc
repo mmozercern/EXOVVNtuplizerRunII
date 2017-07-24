@@ -194,7 +194,42 @@ bool TriggersNtuplizer::findTrigger( std::string trigName ){
        trigName.find("HLT_PFMET170_HBHE_BeamHaloCleaned_v") != std::string::npos||
        //Alternative triggers
        trigName.find("HLT_MonoCentralPFJet80_PFMETNoMu120_JetIdCleaned_PFMHTNoMu120_IDTight")!= std::string::npos||
-       trigName.find("HLT_PFMETNoMu120_JetIdCleaned_PFMHTNoMu120_IDTight")!= std::string::npos
+       trigName.find("HLT_PFMETNoMu120_JetIdCleaned_PFMHTNoMu120_IDTight")!= std::string::npos||
+       //2017 triggers
+       trigName.find("HLT_PFHT180")!= std::string::npos||
+       trigName.find("HLT_PFHT250")!= std::string::npos||
+       trigName.find("HLT_PFHT350")!= std::string::npos||
+       trigName.find("HLT_PFHT370")!= std::string::npos||
+       trigName.find("HLT_PFHT350")!= std::string::npos||
+       trigName.find("HLT_PFHT430")!= std::string::npos||
+       trigName.find("HLT_PFHT510")!= std::string::npos||
+       trigName.find("HLT_PFHT590")!= std::string::npos||
+       trigName.find("HLT_PFHT680")!= std::string::npos||
+       trigName.find("HLT_PFHT780")!= std::string::npos||
+       trigName.find("HLT_PFHT890")!= std::string::npos||
+       trigName.find("HLT_PFHT1050")!= std::string::npos||
+
+       trigName.find("HLT_PFJet80")!= std::string::npos||
+       trigName.find("HLT_PFJet140")!= std::string::npos||
+       trigName.find("HLT_PFJet200")!= std::string::npos||
+       trigName.find("HLT_PFJet260")!= std::string::npos||
+       trigName.find("HLT_PFJet320")!= std::string::npos||
+       trigName.find("HLT_PFJet400")!= std::string::npos||
+       trigName.find("HLT_PFJet450")!= std::string::npos||
+       trigName.find("HLT_PFJet500")!= std::string::npos||
+       trigName.find("HLT_PFJet550")!= std::string::npos||
+
+       trigName.find("HLT_AK8PFJet80")!= std::string::npos||
+       trigName.find("HLT_AK8PFJet140")!= std::string::npos||
+       trigName.find("HLT_AK8PFJet200")!= std::string::npos||
+       trigName.find("HLT_AK8PFJet260")!= std::string::npos||
+       trigName.find("HLT_AK8PFJet320")!= std::string::npos||
+       trigName.find("HLT_AK8PFJet400")!= std::string::npos||
+       trigName.find("HLT_AK8PFJet450")!= std::string::npos||
+       trigName.find("HLT_AK8PFJet500")!= std::string::npos||
+       trigName.find("HLT_AK8PFJet550")!= std::string::npos
+
+
    ) return true;
    else
      return false;
