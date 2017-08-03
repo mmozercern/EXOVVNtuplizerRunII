@@ -7,7 +7,8 @@ config = dict()
 config["SPRING16"] = True
 config["RUNONMC"] = False
 config["USEJSON"] = True
-config["JSONFILE"] = "JSON/Cert_271036-284044_13TeV_23Sep2016ReReco_Collisions16_JSON.txt"
+config["JSONFILE"] = "Cert_294927-299042_13TeV_PromptReco_Collisions17_JSON.txt"
+#config["JSONFILE"] = "JSON/Cert_246908-258750_13TeV_PromptReco_Collisions15_25ns_JSON.txt"
 config["FILTEREVENTS"] = False
 config["BUNCHSPACING"] = 25
 config["USENOHF"] = False
@@ -45,6 +46,6 @@ config["UpdateJetCollection"] = False #needed for Higgs-tagger in 80X
 config["DOMETRECLUSTERING"] = False
 
 #--------- JEC ----------#
-config["CORRJETSONTHEFLY"] = True #JEC not available yet
-config["CORRMETONTHEFLY"] = True #JEC not available yet
+config["CORRJETSONTHEFLY"] = False #JEC not available yet
+config["CORRMETONTHEFLY"] = False #JEC not available yet
 config["GETJECFROMDBFILE"] = False # If not yet in global tag, but db file available

@@ -273,7 +273,7 @@ Ntuplizer::Ntuplizer(const edm::ParameterSet& iConfig):
 
   if (runFlags["doTriggerDecisions"] || runFlags["doTriggerObjects"] || runFlags["doTriggerDecisions"]) {
     nTuplizers_["triggers"] = new TriggersNtuplizer( triggerToken_, 
-                                                     triggerObjects_, 
+                                                     triggerObjects_,
 						     triggerPrescales_,
                                                      noiseFilterToken_,
 						     HBHENoiseFilterLooseResultToken_,

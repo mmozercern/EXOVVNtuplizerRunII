@@ -20,7 +20,7 @@ import FWCore.ParameterSet.VarParsing as VarParsing
 
 options = VarParsing.VarParsing ('analysis')
 
-options.maxEvents = 100
+options.maxEvents = -1
 
 #data file
 
@@ -28,6 +28,7 @@ options.maxEvents = 100
 #options.inputFiles = 'dcap://t3se01.psi.ch:22125//pnfs/psi.ch/cms/trivcat/store/data/Run2015D/JetHT/MINIAOD/16Dec2015-v1/00000/301A497D-70B0-E511-9630-002590D0AFA8.root'
 #options.inputFiles = '/store/data/Run2016F/JetHT/MINIAOD/23Sep2016-v1/100000/00AB3FCF-1D86-E611-930B-002590D60036.root'
 options.inputFiles = '/store/data/Run2017B/SingleMuon/MINIAOD/23Jun2017-v1/120000/FE3C6528-E059-E711-9E43-0242AC110003.root'
+
 options.parseArguments()
 
 process.options  = cms.untracked.PSet( 
@@ -90,9 +91,9 @@ if not(config["RUNONMC"]) and config["USEJSON"]:
 
   import FWCore.PythonUtilities.LumiList as LumiList
   import FWCore.ParameterSet.Types as CfgTypes
-  process.source.lumisToProcess = CfgTypes.untracked(CfgTypes.VLuminosityBlockRange())
-#  myLumis = LumiList.LumiList(filename = config["JSONFILE"]).getCMSSWString().split(',')
-#  process.source.lumisToProcess.extend(myLumis) 
+  #process.source.lumisToProcess = CfgTypes.untracked(CfgTypes.VLuminosityBlockRange())
+  #myLumis = LumiList.LumiList(filename = config["JSONFILE"]).getCMSSWString().split(',')
+  #process.source.lumisToProcess.extend(myLumis) 
 
   if config["FILTEREVENTS"]:
   
@@ -705,8 +706,8 @@ if config["BUNCHSPACING"] == 25 and config["RUNONMC"] and config["SPRING16"]:
 elif config["BUNCHSPACING"] == 25 and not(config["RUNONMC"]) and config["SPRING16"]:
    JECprefix = "Summer16_23Sep2016HV3"
 
-jecAK8chsUncFile = "JEC/%s_DATA_Uncertainty_AK8PFchs.txt"%(JECprefix)
-jecAK4chsUncFile = "JEC/%s_DATA_Uncertainty_AK4PFchs.txt"%(JECprefix)
+jecAK8chsUncFile = "%s_DATA_Uncertainty_AK8PFchs.txt"%(JECprefix)
+jecAK4chsUncFile = "%s_DATA_Uncertainty_AK4PFchs.txt"%(JECprefix)
 
 
 if config["CORRJETSONTHEFLY"]:
@@ -778,14 +779,14 @@ if config["CORRMETONTHEFLY"]:
 #                        )
 ######## JER ########
 JERprefix = "Spring16_25nsV6"
-jerAK8chsFile_res = "JER/%s_MC_PtResolution_AK8PFchs.txt"%(JERprefix)
-jerAK4chsFile_res = "JER/%s_MC_PtResolution_AK4PFchs.txt"%(JERprefix)
-jerAK8PuppiFile_res = "JER/%s_MC_PtResolution_AK8PFPuppi.txt"%(JERprefix)
-jerAK4PuppiFile_res = "JER/%s_MC_PtResolution_AK4PFPuppi.txt"%(JERprefix)
-jerAK8chsFile_sf = "JER/%s_MC_SF_AK8PFchs.txt"%(JERprefix)
-jerAK4chsFile_sf = "JER/%s_MC_SF_AK4PFchs.txt"%(JERprefix)
-jerAK8PuppiFile_sf = "JER/%s_MC_SF_AK8PFPuppi.txt"%(JERprefix)
-jerAK4PuppiFile_sf = "JER/%s_MC_SF_AK4PFPuppi.txt"%(JERprefix)
+jerAK8chsFile_res = "%s_MC_PtResolution_AK8PFchs.txt"%(JERprefix)
+jerAK4chsFile_res = "%s_MC_PtResolution_AK4PFchs.txt"%(JERprefix)
+jerAK8PuppiFile_res = "%s_MC_PtResolution_AK8PFPuppi.txt"%(JERprefix)
+jerAK4PuppiFile_res = "%s_MC_PtResolution_AK4PFPuppi.txt"%(JERprefix)
+jerAK8chsFile_sf = "%s_MC_SF_AK8PFchs.txt"%(JERprefix)
+jerAK4chsFile_sf = "%s_MC_SF_AK4PFchs.txt"%(JERprefix)
+jerAK8PuppiFile_sf = "%s_MC_SF_AK8PFPuppi.txt"%(JERprefix)
+jerAK4PuppiFile_sf = "%s_MC_SF_AK4PFPuppi.txt"%(JERprefix)
                                                                                            
 ################## Ntuplizer ###################
 process.ntuplizer = cms.EDAnalyzer("Ntuplizer",

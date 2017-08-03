@@ -215,6 +215,9 @@ void JetsNtuplizer::initJetCorrFactors( void ){
 //===================================================================================================================
 void JetsNtuplizer::initJetCorrUncertainty( void ){
 
+  std::cout<< jecAK8UncName_ <<std::endl;
+  std::cout<< jecAK4UncName_ <<std::endl;
+    
   jecAK8Unc_ = boost::shared_ptr<JetCorrectionUncertainty>( new JetCorrectionUncertainty(jecAK8UncName_) );
   jecAK4Unc_ = boost::shared_ptr<JetCorrectionUncertainty>( new JetCorrectionUncertainty(jecAK4UncName_) );
 
