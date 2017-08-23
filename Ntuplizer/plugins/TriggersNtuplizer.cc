@@ -227,7 +227,15 @@ bool TriggersNtuplizer::findTrigger( std::string trigName ){
        trigName.find("HLT_AK8PFJet400")!= std::string::npos||
        trigName.find("HLT_AK8PFJet450")!= std::string::npos||
        trigName.find("HLT_AK8PFJet500")!= std::string::npos||
-       trigName.find("HLT_AK8PFJet550")!= std::string::npos
+       trigName.find("HLT_AK8PFJet550")!= std::string::npos||
+       
+       trigName.find("HLT_AK8PFHT750_TrimMass50" )!= std::string::npos	||
+       trigName.find("HLT_AK8PFHT800_TrimMass50" )!= std::string::npos	||
+       trigName.find("HLT_AK8PFHT850_TrimMass50" )!= std::string::npos	||
+       trigName.find("HLT_AK8PFHT900_TrimMass50" )!= std::string::npos	||
+       trigName.find("HLT_AK8PFJet360_TrimMass30")!= std::string::npos	||
+       trigName.find("HLT_AK8PFJet380_TrimMass30")!= std::string::npos	||
+       trigName.find("HLT_AK8PFJet400_TrimMass30")!= std::string::npos   
 
 
    ) return true;
